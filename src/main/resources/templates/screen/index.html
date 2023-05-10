@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common :: head('Hotel Booking System')"></head>
+<body>
+ 	<div th:replace="fragments/header.html :: header(Auth=${Auth})"></div>
+ 	
+ 	<div class="mx-auto w-50">
+ 	<div>部屋一覧</div>
+ 	<div class="row d-flex flex-row justify-content-between parent">
+ 		<div class="col-3" th:each="room : ${rooms}" th:object="${room}">
+ 		<div th:id="*{id}" th:flag="*{lendFlag}" th:choose="0" class="text-center py-5 border room" 
+ 		th:text="*{roomNumber}" style="border-radius: 15px; margin-bottom: 20px;"
+ 		th:styleappend="*{lendFlag==1}? 'background-color: #E1E1E1 ;cursor: pointer;' :'background-color: white; cursor: pointer' ">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ></div>
+ 			
+ 		</div>
+ 	</div>
+ 	</div>
+ 	
+ 	
+<!--  	<h1>Hello  World</h1> -->
+ <script>	
+	$(document).ready(function(){
+ 		  $('.room').click(function(){
+ 		    $(this).css('background', '#aaa')
+ 		    console.log("ha;lskdjf")
+ 		  });
+ 		}); 
+	
+// 	$( function() {
+// 		  $('td').click( function() {
+// 		    $(this).css('background', '#aaa')
+// 		  } );
+// 		} );
+ </script> 
+</body>
+</html>
+
+
